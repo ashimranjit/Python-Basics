@@ -1,0 +1,36 @@
+class CallCenter:
+    def __init__(self):
+      self.customers = []
+
+    def is_empty(self):
+      return self.customers == []
+
+    def add(self, x):
+      self.customers.insert(0, x)
+
+    def next(self):
+      return self.customers.pop()
+
+
+c = CallCenter()
+
+while True:
+    n = input()
+    if n == 'end':
+        break
+    c.add(n)
+
+#two input values may be general= 5minutes or technical= 10minutes
+total = 0
+while True:
+    if c.is_empty():
+        break
+    value = c.next()
+    if value == 'general':
+        total += 5
+    elif value == 'technical':
+        total += 10
+    else:
+        print('Please choose your purpose (general or technical)')
+
+print(total)
